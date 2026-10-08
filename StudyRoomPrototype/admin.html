@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Study Room Reservations</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Admin Portal</h1>
+    <p>Create public/class study room reservations, then manage student participants.</p>
+  </header>
+
+  <main class="card">
+    <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+      <button id="seedAdminBtn">Seed Demo Data</button>
+      <a href="./index.html" style="text-decoration:none;"><button type="button">Back to Prototype</button></a>
+    </div>
+
+    <div class="hint" style="margin-top:10px;">
+      Note: your teammate’s login page can redirect admins here via <code>window.location.href = 'admin.html'</code>.
+    </div>
+  </main>
+
+  <main class="card">
+    <h2 style="margin-top:0;">Create Public/Class Reservation</h2>
+
+    <div class="formRow">
+      <label>Reservation ID</label>
+      <input id="a_resId" placeholder="classRes1" value="classRes1" />
+    </div>
+
+    <div class="formRow">
+      <label>Admin User ID</label>
+      <input id="a_adminId" placeholder="a1" value="a1" />
+    </div>
+
+    <div class="formRow">
+      <label>Room ID</label>
+      <input id="a_roomId" placeholder="r1" value="r1" />
+    </div>
+
+    <div class="formRow">
+      <label>Start (ISO or local)</label>
+      <input id="a_start" placeholder="2030-01-01T10:00" />
+    </div>
+
+    <div class="formRow">
+      <label>End (ISO or local)</label>
+      <input id="a_end" placeholder="2030-01-01T12:00" />
+    </div>
+
+    <div class="formRow">
+      <label>Class / Topic</label>
+      <input id="a_topic" placeholder="COEN 174" value="COEN 174" />
+    </div>
+
+    <div class="formRow">
+      <label>Max Participants</label>
+      <input id="a_max" placeholder="6" />
+    </div>
+
+    <div class="hint">Tip: leave start/end blank to auto-pick +1hr and +2hr. Leave max blank to default to room capacity.</div>
+
+    <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+      <button id="createPublicBtn">Create Public Reservation</button>
+      <button id="refreshBtn" type="button">Refresh Lists</button>
+    </div>
+  </main>
+
+  <main class="card">
+    <h2 style="margin-top:0;">Manage Participants</h2>
+
+    <div class="formRow">
+      <label>Reservation ID</label>
+      <input id="m_resId" placeholder="classRes1" value="classRes1" />
+    </div>
+
+    <div class="formRow">
+      <label>Admin User ID</label>
+      <input id="m_adminId" placeholder="a1" value="a1" />
+    </div>
+
+    <div class="formRow">
+      <label>Student User ID</label>
+      <input id="m_studentId" placeholder="u2" />
+    </div>
+
+    <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+      <button id="adminAddBtn">Admin: Add Student</button>
+      <button id="adminRemoveBtn">Admin: Remove Student</button>
+      <button id="studentJoinBtn">Student: Join Public Reservation</button>
+    </div>
+
+    <div class="hint" style="margin-top:10px;">
+      “Student: Join” simulates what you’ll do on the student portal later.
+      The admin actions are stricter: only the owner admin can add/remove.
+    </div>
+  </main>
+
+  <main class="card wide">
+    <div id="adminOut"></div>
+  </main>
+
+  <script type="module" src="./admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Room Prototype (JS)</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Study Room Prototype</h1>
+    <p>Ugly but working: seed → reserve → cancel → show data</p>
+  </header>
+
+  <main class="card">
+    <div class="formRow">
+      <label>Reservation ID</label>
+      <input id="resId" placeholder="res1" value="res1" />
+    </div>
+
+    <div class="formRow">
+      <label>User ID</label>
+      <input id="userId" placeholder="u1" value="u1" />
+    </div>
+
+    <div class="formRow">
+      <label>Room ID</label>
+      <input id="roomId" placeholder="r1" value="r1" />
+    </div>
+
+    <div class="formRow">
+      <label>Start (ISO or local)</label>
+      <input id="start" placeholder="2030-01-01T10:00:00Z" />
+    </div>
+
+    <div class="formRow">
+      <label>End (ISO or local)</label>
+      <input id="end" placeholder="2030-01-01T12:00:00Z" />
+    </div>
+
+    <div class="hint">Tip: leave start/end blank to auto-pick +1hr and +2hr.</div>
+
+    <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+      <button id="seedBtn">Seed Data</button>
+      <button id="reserveBtn">Create Reservation</button>
+      <button id="cancelBtn">Cancel Reservation</button>
+      <button id="showBtn">Show Stored Data</button>
+    </div>
+  </main>
+
+  <main class="card wide">
+    <div id="out"></div>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
